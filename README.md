@@ -1,6 +1,5 @@
 # Fraction Calculator App
-
-Fraction Calculator App is .
+Calculator Fraction Money
 
 ## Screenshot
 ![alt text](https://i.ibb.co/xLQwDx2/image.png)
