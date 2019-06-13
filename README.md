@@ -1,6 +1,6 @@
 # Fraction Calculator App
 
-Fraction Calculator App is .
+ Fraction Money Calculator
 
 ## Screenshot
 ![alt text](https://i.ibb.co/xLQwDx2/image.png)
@@ -103,4 +103,17 @@ export const AVAILABLE_FRACTIONS =  [
     100,
     50
   ]
+```
+
+
+### Change Error Message
+You could change error message with modfying  ERROR_MSG variable in ```/utils/constants```
+
+```
+export const ERROR_MSG =  { 
+    INVALID_SEPARATOR : "You have entered invalid format, valid input e.g : 12.000", #Example
+    INVALID_SPACING : "You have entered spacing between number, valid input e.g : 12000",
+    INVALID_POSITION : "You have entered invalid currency position, valid input e.g : Rp 12000",
+    NOT_NULL : "This field cannot be empty"
+}
 ```

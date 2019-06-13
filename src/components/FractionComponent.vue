@@ -76,6 +76,9 @@ export default {
       }
 
       if (this.errors.length <= 0 && currentAmount) {
+        //Change denominations 
+        this.inputAmount = this.$options.filters.currencyFormat(currentAmount);
+
         // // // Looping current amount until zero
         while (currentAmount != 0) {
           let fraction = this.availableFractions.find(x => currentAmount >= x);
@@ -102,17 +105,12 @@ export default {
     }
   },
   filters: {
-    capitalize: function(value) {
-      if (!value) return "";
-      value = value.toString();
-      return value.charAt(0).toUpperCase() + value.slice(1);
-    },
     currencyFormat: function(value) {
       if (!value) return "";
       let formatValue = new Intl.NumberFormat("id-ID", {
         style: "currency",
         currency: "IDR"
-      }).format(+value);
+      }).format(+value).replace(/\D00$/, '');
       return formatValue;
     }
   }
