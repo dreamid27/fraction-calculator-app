@@ -32,8 +32,7 @@
 </template>
 
 <script>
-
-import { ERROR_MSG } from '../../utils/constants';
+import { ERROR_MSG, AVAILABLE_FRACTIONS } from "../../utils/constants";
 
 export default {
   title() {
@@ -43,17 +42,7 @@ export default {
     return {
       errors: [],
       inputAmount: "",
-      availableFractions: [
-        100000,
-        50000,
-        20000,
-        10000,
-        5000,
-        1000,
-        500,
-        100,
-        50
-      ],
+      availableFractions: AVAILABLE_FRACTIONS,
       listFractions: [],
       leftFraction: 0
     };
@@ -69,27 +58,21 @@ export default {
       // //check invalid separator
       let regInvalidSeparator = /^[0-9]+(,[0-9]{3,})+$/g;
       if (regInvalidSeparator.test(this.inputAmount)) {
-        this.errors.push(
-          ERROR_MSG.INVALID_SEPARATOR
-        );
+        this.errors.push(ERROR_MSG.INVALID_SEPARATOR);
       }
 
       let regSpaceInNumber = /^[0-9]+(\s[0-9]{1,})+$/g;
       if (regSpaceInNumber.test(this.inputAmount)) {
-        this.errors.push(
-          "You have entered spacing between number, valid input e.g : 12000"
-        );
+        this.errors.push(ERROR_MSG.INVALID_SPACING);
       }
 
       let regInvalidCharacterPosition = /^[0-9]+(\s[a-zA-Z]{1,})+$/g;
       if (regInvalidCharacterPosition.test(this.inputAmount)) {
-        this.errors.push(
-          "You have entered invalid currency position, valid input e.g : Rp 12000"
-        );
+        this.errors.push(ERROR_MSG.INVALID_POSITION);
       }
 
       if (!currentAmount) {
-        this.errors.push("This field cannot be empty");
+        this.errors.push(ERROR_MSG.NOT_NULL);
       }
 
       if (this.errors.length <= 0 && currentAmount) {
