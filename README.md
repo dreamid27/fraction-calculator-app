@@ -22,7 +22,6 @@ See [Demo Here](https://fraction-calculator-app.herokuapp.com/).
     ├── tests                   # Unit Testing
     ├── utils                   # Tools and utilities
       ├── constants             # Constants Files
-    ├── LICENSE
     └── README.md
 
 > Use short lowercase names at least for the top-level files and folders except
